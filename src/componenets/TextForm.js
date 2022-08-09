@@ -60,18 +60,18 @@ export default function TextForm(props) {
                     <h1>{props.heading}</h1>
                     <div className="my-3" >
                         <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? '#042736' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}></textarea>
-                        <button className="btn btn-primary my-3" onClick={handleUpClick}>Change to upper case</button>
-                        <button className="btn btn-primary my-3 mx-2" onClick={handleDownClick}>Change to Lower case</button>
-                        <button className="btn btn-primary my-3 mx-2" onClick={handleBoldClick}>Bold Text</button>
-                        <button className="btn btn-primary my-3 mx-2" onClick={handleClearClick}>Clear text</button>
+                        <button disabled={text.length === 0} className="btn btn-primary my-3" onClick={handleUpClick}>Change to upper case</button>
+                        <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleDownClick}>Change to Lower case</button>
+                        <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleBoldClick}>Bold Text</button>
+                        <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleClearClick}>Clear text</button>
 
                     </div>
                 </div>
             </div>
             <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h1>Your Text summary</h1>
-                <p>{text.split(" ").length - 1} words and {text.length - (text.split(" ").length - 1)} characters</p>
-                <p>{((text.split(" ").length - 1) * 0.008)} minutes will be taken by slow reader and {(text.split(" ").length - 1) * 0.0032} minutes will be taken by fast reader</p>
+                <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length - (text.split(" ").length - 1)} characters</p>
+                <p>{((text.split(" ").filter((element) => { return element.length !== 0 }).length) * 0.008)} minutes will be taken by slow reader and {text.split(" ").filter((element) => { return element.length !== 0 }).length * 0.0032} minutes will be taken by fast reader</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "enter something in above box to preview it here"}</p>
                 {/* <p><i>{text}</i></p> */}

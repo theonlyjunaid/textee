@@ -1,33 +1,37 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
-const About = () => {
-    const [myStyle, setMyStyle] = useState({
-        color: 'white',
-        background: 'black'
+const About = (props) => {
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'white',
+    //     background: 'black'
+    // }
+    // )
+    let myStyle = {
+        color: props.mode === 'dark' ? 'white' : '#042743',
+        backgroundColor: props.mode === 'dark' ? '#042743' : 'white'
     }
-    )
-    const [btn, setBtn] = useState("Change to light mode")
-    const toggle = () => {
-        if (myStyle.color === 'white') {
-            setMyStyle({
-                color: 'black',
-                background: 'white'
-            })
-            setBtn("Change to Dark Mode")
-        }
-        else {
-            setMyStyle({
-                color: 'white',
-                background: 'black'
-            })
-            setBtn("Change to Light Mode")
-        }
-    }
+    // const [btn, setBtn] = useState("Change to light mode")
+    // const toggle = () => {
+    //     if (myStyle.color === 'white') {
+    //         setMyStyle({
+    //             color: 'black',
+    //             background: 'white'
+    //         })
+    //         setBtn("Change to Dark Mode")
+    //     }
+    //     else {
+    //         setMyStyle({
+    //             color: 'white',
+    //             background: 'black'
+    //         })
+    //         setBtn("Change to Light Mode")
+    //     }
+    // }
     return (
 
-        <> <div className="conatiner" style={myStyle}>
-            <h1 className='text-3xl'>About us</h1>
+        <> <div className="conatiner my-30 " style={myStyle}>
+            <h1 className='text-3xl '>About us</h1>
             <div className="accordion" id="accordionExample" style={myStyle}>
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header" id="headingOne" style={myStyle}>
@@ -66,7 +70,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <button type="button" style={myStyle} onClick={toggle}>{btn}</button>
+
         </div>
         </>
     )
