@@ -1,12 +1,8 @@
-import './App.css';
 import React, { useState } from 'react'
 import About from './componenets/About';
-import Components from './componenets/Components';
-// import Foo from './componenets/Comp';
 import Navbar from './componenets/Navbar';
 import TextForm from './componenets/TextForm';
 import Alert from './componenets/Alert'
-// import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
@@ -30,14 +26,6 @@ function App() {
         setAlert(null)
       }, 1500);
     }
-    //  else if (mode === 'green') {
-    //   setMode("success")
-    //   document.body.style.background = "white"
-    //   showAlert("Light mode Enabled", "success")
-    //   setTimeout(() => {
-    //     setAlert(null)
-    //   }, 1500);
-    // }
     else {
       setMode("dark")
       document.title = "Text | Dark Mode"
@@ -57,11 +45,8 @@ function App() {
           <Routes>
             <Route exact path="/about" element={<About mode={mode} />} />
             <Route exact path="/" element={<TextForm heading="Enter the text to analyse" mode={mode} showAlert={showAlert} setAlert={setAlert} />} />
-            <Route exact path="/components" element={<Components />} />
           </Routes>
         </div>
-        {/* <About /> */}
-        {/* <Components /> */}
       </>
     </Router>
   );

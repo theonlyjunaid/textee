@@ -63,8 +63,7 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
     const [text, setText] = useState("");
-    // const [syle, setSyle] = useState("");
-    // setText("hello");
+
     return (
         <>
             <div className="comtainer" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
@@ -88,7 +87,6 @@ export default function TextForm(props) {
                 <p>{((text.split(/\s+/).filter((element) => { return element.length !== 0 }).length) * 0.008)} minutes will be taken by slow reader and {text.split(/\s+/).filter((element) => { return element.length !== 0 }).length * 0.0035} minutes will be taken by fast reader</p>
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "enter something in above box to preview it here"}</p>
-                {/* <p><i>{text}</i></p> */}
             </div>
         </>
     )
