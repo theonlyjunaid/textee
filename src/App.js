@@ -51,7 +51,7 @@ function App() {
   return (
     <Router>
       <>
-        <Navbar title="Junaid ka jadu" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="Textee By Junaid" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container">
           <Routes>
