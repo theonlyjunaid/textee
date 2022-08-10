@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 export default function TextForm(props) {
+    const [Bold, setBold] = useState("Bold Text");
     const handleUpClick = () => {
         let newText = text.toUpperCase()
         setText(newText)
@@ -26,19 +27,17 @@ export default function TextForm(props) {
             setTimeout(() => {
                 props.setAlert(null)
             }, 1500);
-
+            setBold("Bold Text")
         } else {
             newtext.style.fontWeight = "bold"
             props.showAlert("Text Changed to bold Font", "success")
             setTimeout(() => {
                 props.setAlert(null)
             }, 1500);
-
+            setBold("Un-Bold Text")
         }
 
-
     }
-
 
     const handleCopy = () => {
         navigator.clipboard.writeText(text)
@@ -76,7 +75,7 @@ export default function TextForm(props) {
                         <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleCopy}>Copy Text</button>
                         <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
                         <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleClearClick}>Clear text</button>
-                        <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleBoldClick}>Bold Text</button>
+                        <button disabled={text.length === 0} className="btn btn-primary my-3 mx-2" onClick={handleBoldClick}>{Bold}</button>
 
                     </div>
                 </div>
